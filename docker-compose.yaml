@@ -1,0 +1,16 @@
+services:
+  postgres:
+    image: postgres:17
+    container_name: clinicflow-db
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: clinicflow
+      POSTGRES_USER: clinicflow
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+    ports:
+      - "5433:5432"
+    volumes:
+      - clinicflow_data:/var/lib/postgresql/data
+
+volumes:
+  clinicflow_data:y
